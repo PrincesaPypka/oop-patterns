@@ -7,10 +7,8 @@
 
 class RubberDuck : public DuckInterface {
  public:
-  RubberDuck() : DuckInterface() {
-      SetFlyBehavior(std::make_unique<FlyNoWay>());
-      SetQuackBehavior(std::make_unique<Squeak>());
-  }
+  RubberDuck() : DuckInterface(std::make_unique<FlyNoWay>(),
+                               std::make_unique<Squeak>()) {}
   void Display() override {
       std::cout << "I'm a rubber duck!" << std::endl;
       PerformFly();

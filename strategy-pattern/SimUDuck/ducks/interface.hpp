@@ -26,6 +26,19 @@ class DuckInterface {
       /* some common duck staff */
   }
 
+  DuckInterface(const DuckInterface &copy) = delete;
+
+  /**
+   * @brief Constructs a new DuckInterface object.
+   *
+   * This move constructor initializes any common duck properties or behaviors.
+   */
+  DuckInterface(DuckInterface &&copy) noexcept
+      : fly_behavior_(std::move(copy.fly_behavior_)),
+        quack_behavior_(std::move(copy.quack_behavior_)) {
+      std::cout << "Move constructor" << std::endl;
+  }
+
   /**
    * @brief Destroys the DuckInterface object.
    *
@@ -33,6 +46,8 @@ class DuckInterface {
    * to clean up their own resources as needed.
    */
   virtual ~DuckInterface() = default;
+
+  DuckInterface &operator=(const DuckInterface &o) = delete;
 
   /**
    * @brief Displays the duck's appearance and behavior.

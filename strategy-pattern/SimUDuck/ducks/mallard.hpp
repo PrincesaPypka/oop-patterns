@@ -7,10 +7,8 @@
 
 class MallardDuck : public DuckInterface {
  public:
-  MallardDuck() : DuckInterface() {
-      SetFlyBehavior(std::make_unique<FlyWithWings>());
-      SetQuackBehavior(std::make_unique<QuackStd>());
-  }
+  MallardDuck() : DuckInterface(std::make_unique<FlyWithWings>(),
+                                std::make_unique<QuackStd>()) {}
 
   void Display() override {
       std::cout << "I'm a mallard duck!" << std::endl;
