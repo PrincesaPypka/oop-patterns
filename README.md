@@ -18,3 +18,5 @@ Strategy lets the algorithm vary independently of clients that use it.
 In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/strategy-pattern), 
 `FlyBehavior class` and `QuackBehavior class` are **interfaces of algorithm families** which providing different quack and fly behaviors.
 
+[Here is a more real world example]()
+
