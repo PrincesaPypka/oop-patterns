@@ -7,7 +7,7 @@ class QuackBehavior {
  public:
   virtual ~QuackBehavior() = default;
 
-  virtual void quack() = 0;
+  virtual void Quack() = 0;
 };
 
 #endif //STRATEGY_PATTERN_SIMUDUCK_QUACKBEHAVIOR_INTERFACE_HPP_

@@ -5,21 +5,21 @@
 
 int main() {
     DuckInterface *model = new DecoyDuck();
-    model->display();
+    model->Display();
     delete model;
 
     model = new RubberDuck();
-    model->display();
+    model->Display();
     delete model;
 
     model = new ModelDuck();
-    model->display();
-    model->setQuackBehavior(std::make_unique<Squeak>());
-    model->performQuack();
+    model->Display();
+    model->SetQuackBehavior(std::make_unique<Squeak>());
+    model->PerformQuack();
     delete model;
 
     model = new MallardDuck();
-    model->display();
+    model->Display();
     delete model;
 
     return 0;

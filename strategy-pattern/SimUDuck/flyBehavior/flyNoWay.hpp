@@ -7,7 +7,7 @@ class FlyNoWay : public FlyBehavior {
  public:
   ~FlyNoWay() override = default;
 
-  void fly() override { std::cout << "I can't fly :(" << std::endl; }
+  void Fly() override { std::cout << "I can't Fly :(" << std::endl; }
 };
 
 #endif //STRATEGY_PATTERN_SIMUDUCK_FLYBEHAVIOR_FLYNOWAY_HPP_

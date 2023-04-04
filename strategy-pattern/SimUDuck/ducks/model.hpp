@@ -7,16 +7,14 @@
 
 class ModelDuck : virtual public DuckInterface {
  public:
-  ModelDuck() : DuckInterface() {
-    setFlyBehavior(std::make_unique<FlyNoWay>());
-    setQuackBehavior(std::make_unique<Quack>());
-  }
+  ModelDuck() : DuckInterface(std::make_unique<FlyNoWay>(),
+                              std::make_unique<QuackStd>()) {}
 
-  void display() override {
-    std::cout << "I'm a model duck!" << std::endl;
-    performFly();
-    performQuack();
-    performSwim();
+  void Display() override {
+      std::cout << "I'm a model duck!" << std::endl;
+      PerformFly();
+      PerformQuack();
+      PerformSwim();
   };
 };
 

@@ -7,10 +7,5 @@ set(CMAKE_CXX_STANDARD 20)
 set(GLOB FLY_BEHAVIOR "SimUDuck/flyBehavior")
 set(GLOB QUACK_BEHAVIOR "SimUDuck/quickBehavior")
 set(GLOB DUCKS "SimUDuck/ducks")
-add_executable(SimUDuckExe SimUDuck/simUDuck.cpp ${FLY_BEHAVIOR} ${QUACK_BEHAVIOR} ${DUCKS})
+add_executable(SimUDuckExe SimUDuck/simUDuck.cpp ${FLY_BEHAVIOR} ${QUACK_BEHAVIOR} ${DUCKS} SimUDuck/ducks/decoy.cpp)
 target_include_directories(SimUDuckExe PRIVATE SimUDuck)
-
-# example 2
-#add_executable()r
-
-#

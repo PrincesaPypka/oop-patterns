@@ -7,17 +7,15 @@
 
 class DecoyDuck : public DuckInterface {
  public:
-  DecoyDuck() : DuckInterface() {
-    setFlyBehavior(std::make_unique<FlyRocketPowered>());
-    setQuackBehavior(std::make_unique<MuteQuack>());
-  }
+  DecoyDuck() : DuckInterface(std::make_unique<FlyRocketPowered>(),
+                              std::make_unique<MuteQuack>()) {}
   ~DecoyDuck() override = default;
 
-  void display() override {
-    std::cout << "I'm a decoy duck!" << std::endl;
-    performFly();
-    performQuack();
-    performSwim();
+  void Display() override {
+      std::cout << "I'm a decoy duck!" << std::endl;
+      PerformFly();
+      PerformQuack();
+      PerformSwim();
   }
 };
 

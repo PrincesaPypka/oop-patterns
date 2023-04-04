@@ -3,11 +3,11 @@
 
 #include "interface.hpp"
 
-class Quack : public QuackBehavior {
+class QuackStd : public QuackBehavior {
  public:
-  ~Quack() override = default;
+  ~QuackStd() override = default;
 
-  void quack() override { std::cout << "Quack" << std::endl; }
+  void Quack() override { std::cout << "Quack" << std::endl; }
 };
 
 #endif //STRATEGY_PATTERN_SIMUDUCK_QUACKBEHAVIOR_QUACK_HPP_

@@ -7,7 +7,7 @@ class Squeak : public QuackBehavior {
  public:
   ~Squeak() override = default;
 
-  void quack() override { std::cout << "Squeak" << std::endl; }
+  void Quack() override { std::cout << "Squeak" << std::endl; }
 };
 
 #endif //STRATEGY_PATTERN_SIMUDUCK_QUACKBEHAVIOR_SQUEAK_HPP_
