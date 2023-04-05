@@ -1,8 +1,8 @@
 # oop patterns
 
-Here stored some examples for patterns, that where given in the most brilliant
-book ever
-(I'll add it here some day. Right?)
+Here stored some examples for patterns, that where given in [the most brilliant
+book ever!](https://wickedlysmart.com/books/) We need 'Head First Design
+Patterns'.
 
 ### Strategy pattern
 
@@ -35,13 +35,13 @@ them to be interchanged.
 |:-------------------------------------------------------------------------------------------------------:|:----------------------------------------------------:|
 |               Algorithms are encapsulated in objects and can be exchanged during run time               |   Clients must know and choose the right strategy    |
 |                Adding new strategies is easy. You only have to implement a new strategy.                | The number of objects (strategies) increases heavily |
-| The Strategy Pattern replaces conditional execution based on `if/else `statements or `switch`statements |                                                      |
+| The Strategy Pattern replaces conditional execution based on `if/else` statements or `switch`statements |                                                      |
 |                  Callables are often lightweight implementations for strategies in C++                  |                                                      |
 
-In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/strategy-pattern),
+In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/strategy-pattern/SimUDuck),
 `FlyBehavior class` and `QuackBehavior class` are **interfaces of algorithm
 families**
-which providing different QuackStd and Fly behaviors.
+which providing different Quack and Fly behaviors.
 
-[Here is a more real world example]()
+[Here is a more real world example](https://github.com/some404day)
 
