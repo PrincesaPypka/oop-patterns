@@ -1,4 +1,4 @@
-#include "weatherData.hpp"
+#include "weatherData/data.hpp"
 #include "display/currentCondition.hpp"
 
 int main() {

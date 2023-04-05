@@ -1,11 +1,10 @@
-#ifndef OBSERVER_PATTERN_WEATHERSTATION1_DISPLAY_CURRENTCONDITION_HPP_
-#define OBSERVER_PATTERN_WEATHERSTATION1_DISPLAY_CURRENTCONDITION_HPP_
+#ifndef OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_CURRENTCONDITION_HPP_
+#define OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_CURRENTCONDITION_HPP_
 
 #include <iostream>
-#include <memory>
 
 #include "interface.hpp"
-#include "weatherData.hpp"
+#include "weatherData/data.hpp"
 
 class CurrentConditionDevice
     : public DeviceInterface,
@@ -16,19 +15,19 @@ class CurrentConditionDevice
   ) {
       auto ptr = std::shared_ptr<CurrentConditionDevice>(
           new CurrentConditionDevice(weather_data));
-      ptr->weather_data_->AddDevice(ptr->shared_from_this());
+      ptr->weather_data_->AddDisplay(ptr->shared_from_this());
       return ptr;
   }
 
-  ~CurrentConditionDevice() override {
+  ~CurrentConditionDevice() {
       if (/*auto sp = weather_data_.lock()*/true)
-          weather_data_->RemoveDevice(shared_from_this());
+          weather_data_->RemoveDisplay(shared_from_this());
   }
 
   void ConnectToAnotherDataSource(std::shared_ptr<WeatherData> new_wd) {
       if (/*auto sp = weather_data_.lock()*/true)
-          weather_data_->RemoveDevice(shared_from_this());
-      new_wd->AddDevice(shared_from_this());
+          weather_data_->RemoveDisplay(shared_from_this());
+      new_wd->AddDisplay(shared_from_this());
       weather_data_ = new_wd;
       Update();
   }
@@ -59,4 +58,4 @@ class CurrentConditionDevice
   };
 };
 
-#endif //OBSERVER_PATTERN_WEATHERSTATION1_DISPLAY_CURRENTCONDITION_HPP_
+#endif //OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_CURRENTCONDITION_HPP_
