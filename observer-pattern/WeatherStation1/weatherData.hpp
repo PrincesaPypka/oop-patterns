@@ -18,11 +18,11 @@ class WeatherData {
       pressure_(s.pressure_),
       connected_devises_(std::move(s.connected_devises_)) {}
 
-  void AddDevice(const std::shared_ptr<DeviceInterface>& device) {
+  void AddDevice(const std::shared_ptr<DeviceInterface> &device) {
       connected_devises_.push_back(device);
   }
 
-  void RemoveDevice(const std::shared_ptr<DeviceInterface> &device){
+  void RemoveDevice(const std::shared_ptr<DeviceInterface> &device) {
       auto ptr = device.get();
       long pos = -1;
       for (auto i = 0; i < connected_devises_.size(); ++i)
@@ -31,7 +31,7 @@ class WeatherData {
               break;
           }
       if (pos != -1)
-        connected_devises_.erase(connected_devises_.cbegin() + pos);
+          connected_devises_.erase(connected_devises_.cbegin() + pos);
   }
 
   void NotifyDevices() {

@@ -57,7 +57,7 @@ class DuckInterface {
    * This method delegates the Fly behavior to the current FlyBehavior
    * object, which can be set dynamically using SetFlyBehavior().
    */
-  void PerformFly()  { fly_behavior_->Fly(); }
+  void PerformFly() { fly_behavior_->Fly(); }
 
   /**
    * @brief Performs the duck's swim behavior.
@@ -65,7 +65,7 @@ class DuckInterface {
    * This method is common to all ducks and is implemented here to provide
    * a default behavior for swimming.
    */
-  void PerformSwim()  { std::cout << "All ducks can swim" << std::endl; }
+  void PerformSwim() { std::cout << "All ducks can swim" << std::endl; }
 
   /**
    * @brief Sets the duck's Fly behavior dynamically.
@@ -76,7 +76,7 @@ class DuckInterface {
    * dynamically at runtime.
    * @param behavior The new FlyBehavior object to use.
    */
-  void SetFlyBehavior(const std::shared_ptr<FlyBehavior> &behavior)  {
+  void SetFlyBehavior(const std::shared_ptr<FlyBehavior> &behavior) {
       fly_behavior_ = behavior;
   }
 
@@ -89,7 +89,7 @@ class DuckInterface {
    * duck's Quack behavior to be changed dynamically at runtime.
    * @param behavior The new QuackBehavior object to use.
    */
-  void SetQuackBehavior(const std::shared_ptr<QuackBehavior> &behavior){
+  void SetQuackBehavior(const std::shared_ptr<QuackBehavior> &behavior) {
       quack_behavior_ = behavior;
   }
 
@@ -138,7 +138,7 @@ class DuckInterface {
    */
   DuckInterface(DuckInterface &&copy) noexcept
       : fly_behavior_(std::move(copy.fly_behavior_)),
-        quack_behavior_(std::move(copy.quack_behavior_)) { }
+        quack_behavior_(std::move(copy.quack_behavior_)) {}
  private:
   // Alternatively, we could have used a raw pointer like FlyBehavior *ptr,
   // but that could lead to issues such as memory leaks or dangling pointers
