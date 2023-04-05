@@ -8,6 +8,21 @@ int main() {
     model->Display();
     delete model;
 
+    DecoyDuck duck1;
+
+    DecoyDuck duck2 = duck1;
+    duck2.PerformQuack();
+    duck2.SetQuackBehavior(std::make_unique<Squeak>());
+    duck2.PerformQuack();
+    duck1 = duck2;
+    duck1.PerformQuack();
+    {
+        DecoyDuck duck3;
+        duck3.SetFlyBehavior(std::make_unique<FlyWithWings>());
+        duck3.SetQuackBehavior(std::make_unique<Squeak>());
+        duck1 = std::move(duck3);
+    }
+    duck1.Display();
     model = new RubberDuck();
     model->Display();
     delete model;
