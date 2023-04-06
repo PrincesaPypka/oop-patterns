@@ -28,5 +28,6 @@ int main() {
     beverage = new Whip(beverage);
     std::cout << beverage->GetDescription() << " $" << beverage->Cost()
               << std::endl;
+    delete beverage;
     return 0;
 }
