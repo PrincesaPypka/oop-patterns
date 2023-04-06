@@ -15,9 +15,8 @@ class StatisticDisplay : public DisplayInterface {
 
   ~StatisticDisplay() { weather_data_->RemoveDisplay(shared_from_this()); }
 
-  void ConnectToAnotherDataSource(WeatherData::Shared new_wd);
+  void ConnectToAnotherDataSource(const WeatherData::Shared &);
   void Display() const override;
-  void Update() override;
 
  protected:
   explicit StatisticDisplay(const WeatherData::Shared &weather_data) :
@@ -43,6 +42,7 @@ class StatisticDisplay : public DisplayInterface {
   double sum_temperature_ = 0;
   unsigned measure_count_ = 0;
 
+  void Update() override;
 };
 
 #endif //OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_STATISTIC_HPP_
