@@ -1,7 +1,9 @@
-#include "weatherData/data.hpp"
-#include "display/currentCondition.hpp"
+//#include "weatherData/data.hpp"
+//#include "display/currentCondition.hpp"
+//#include "display/statistic.hpp"
 
 int main() {
+    /*
     auto data1 = std::make_shared<WeatherData>();
     auto device1 = CurrentConditionDisplay::CurrentConnectionDevicePtr(data1);
     auto device2 = CurrentConditionDisplay::CurrentConnectionDevicePtr(data1);
@@ -15,6 +17,6 @@ int main() {
     device1->Display();
     device2->Display();
     data2->SetAllData(5, 6, 7);
-    device1->Display();
+    device1->Display(); */
     return 0;
 }

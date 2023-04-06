@@ -17,7 +17,7 @@ class CurrentConditionDisplay : public DisplayInterface {
       weather_data_->RemoveDisplay(shared_from_this());
   }
 
-  void ConnectToAnotherDataSource(WeatherData::Shared new_wd);
+  void ConnectToAnotherDataSource(const WeatherData::Shared &);
 
   void Display() const override {
       std::cout << "t: " << temperature_ << "h:" << humidity_ << std::endl;

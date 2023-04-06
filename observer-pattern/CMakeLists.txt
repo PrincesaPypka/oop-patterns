@@ -15,4 +15,8 @@ add_executable(WeatherStationExe
         ${DEVICES_SOURCES}
         ${WEATHER_DATA_HEADERS}
         ${WEATHER_DATA_SOURCES})
-target_include_directories(WeatherStationExe PRIVATE WeatherStation)
+target_include_directories(WeatherStationExe
+        PRIVATE
+        WeatherStation
+        displays
+        weatherData)

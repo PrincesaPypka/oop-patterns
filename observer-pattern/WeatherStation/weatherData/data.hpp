@@ -4,6 +4,8 @@
 #include <vector>
 #include "display/interface.hpp"
 
+class DisplayInterface;
+
 class WeatherData {
  public:
   using Shared = std::shared_ptr<WeatherData>;

@@ -31,7 +31,8 @@ CurrentConditionDisplay::Shared CurrentConditionDisplay::CurrentConditionDeviceP
     return ptr;
 }
 
-void CurrentConditionDisplay::ConnectToAnotherDataSource(WeatherData::Shared new_wd) {
+void CurrentConditionDisplay::ConnectToAnotherDataSource(
+    const WeatherData::Shared &new_wd) {
     weather_data_->RemoveDisplay(shared_from_this());
     new_wd->AddDisplay(shared_from_this());
     weather_data_ = new_wd;
