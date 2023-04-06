@@ -2,10 +2,8 @@
 #define OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_CURRENTCONDITION_HPP_
 
 #include <iostream>
-#include <utility>
 
 #include "interface.hpp"
-#include "weatherData/data.hpp"
 
 class CurrentConditionDisplay : public DisplayInterface {
  public:
@@ -28,23 +26,22 @@ class CurrentConditionDisplay : public DisplayInterface {
   WeatherData::Shared GetWeatherData() const { return weather_data_; }
 
  protected:
-  explicit CurrentConditionDisplay(WeatherData::Shared weather_data)
-      : weather_data_(std::move(weather_data)) {}
+  explicit CurrentConditionDisplay(const WeatherData::Shared &weather_data)
+      : DisplayInterface(weather_data) {}
 
   explicit CurrentConditionDisplay(const Shared &copy) :
+      DisplayInterface(copy->weather_data_),
       temperature_(copy->temperature_),
-      humidity_(copy->humidity_),
-      weather_data_(copy->weather_data_) {}
+      humidity_(copy->humidity_) {}
 
   explicit CurrentConditionDisplay(Shared &&copy) :
+      DisplayInterface(copy->weather_data_),
       temperature_(copy->temperature_),
-      humidity_(copy->humidity_),
-      weather_data_(std::move(copy->weather_data_)) {}
+      humidity_(copy->humidity_) {}
 
  private:
   double temperature_ = 0;
   double humidity_ = 0;
-  WeatherData::Shared weather_data_;
 
   void Update() override;
 };
