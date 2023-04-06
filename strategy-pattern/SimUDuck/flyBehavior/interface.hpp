@@ -5,9 +5,10 @@
 
 class FlyBehavior {
  public:
-  virtual ~FlyBehavior() = default;
-
-  virtual void fly() = 0;
+  virtual ~FlyBehavior() = 0;
+  virtual void Fly() = 0;
 };
+
+FlyBehavior::~FlyBehavior() = default;
 
 #endif //STRATEGY_PATTERN_SIMUDUCK_FLYBEHAVIOR_INTERFACE_HPP_
