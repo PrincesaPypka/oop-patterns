@@ -6,56 +6,46 @@
 #include "interface.hpp"
 #include "weatherData/data.hpp"
 
-class CurrentConditionDevice
-    : public DeviceInterface,
-      public std::enable_shared_from_this<CurrentConditionDevice> {
+class CurrentConditionDisplay : public DisplayInterface {
  public:
-  static std::shared_ptr<CurrentConditionDevice> CurrentConnectionDevicePtr(
-      const std::weak_ptr<WeatherData> &weather_data
-  ) {
-      auto ptr = std::shared_ptr<CurrentConditionDevice>(
-          new CurrentConditionDevice(weather_data));
-      ptr->weather_data_->AddDisplay(ptr->shared_from_this());
-      return ptr;
+  using Shared = std::shared_ptr<CurrentConditionDisplay>;
+
+  static Shared CurrentConnectionDevicePtr(const WeatherData::Shared &);
+  static Shared CurrentConditionDevicePtr(const Shared &);
+  static Shared CurrentConditionDevicePtr(Shared &&);
+
+  ~CurrentConditionDisplay() {
+      weather_data_->RemoveDisplay(shared_from_this());
   }
 
-  ~CurrentConditionDevice() {
-      if (/*auto sp = weather_data_.lock()*/true)
-          weather_data_->RemoveDisplay(shared_from_this());
-  }
-
-  void ConnectToAnotherDataSource(std::shared_ptr<WeatherData> new_wd) {
-      if (/*auto sp = weather_data_.lock()*/true)
-          weather_data_->RemoveDisplay(shared_from_this());
-      new_wd->AddDisplay(shared_from_this());
-      weather_data_ = new_wd;
-      Update();
-  }
+  void ConnectToAnotherDataSource(WeatherData::Shared new_wd);
 
   void Display() const override {
       std::cout << "t: " << temperature_ << "h:" << humidity_ << std::endl;
   }
 
-  std::shared_ptr<WeatherData> GetWeatherData() const {
-      return weather_data_;
-  }
+  WeatherData::Shared GetWeatherData() const { return weather_data_; }
 
  protected:
-  explicit CurrentConditionDevice(const std::weak_ptr<WeatherData> &weather_data)
-      : weather_data_(weather_data) {}
+  explicit CurrentConditionDisplay(WeatherData::Shared weather_data)
+      : weather_data_(std::move(weather_data)) {}
+
+  explicit CurrentConditionDisplay(const Shared &copy) :
+      temperature_(copy->temperature_),
+      humidity_(copy->humidity_),
+      weather_data_(copy->weather_data_) {}
+
+  explicit CurrentConditionDisplay(Shared &&copy) :
+      temperature_(copy->temperature_),
+      humidity_(copy->humidity_),
+      weather_data_(std::move(copy->weather_data_)) {}
 
  private:
   double temperature_ = 0;
   double humidity_ = 0;
-  std::shared_ptr<WeatherData> weather_data_;
+  WeatherData::Shared weather_data_;
 
-  void Update() override {
-      std::shared_ptr<CurrentConditionDevice>(shared_from_this());
-      if (/*auto sp = weather_data_.lock()*/true) {
-          temperature_ = weather_data_->GetTemperature();
-          humidity_ = weather_data_->GetHumidity();
-      }
-  };
+  void Update() override;
 };
 
 #endif //OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_CURRENTCONDITION_HPP_
