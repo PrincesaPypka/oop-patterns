@@ -14,6 +14,7 @@ StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     auto ptr = std::shared_ptr<StatisticDisplay>(
         new StatisticDisplay(weather_data));
     ptr->weather_data_->AddDisplay(ptr->shared_from_this());
+    ptr->Update();
     return ptr;
 }
 
@@ -23,6 +24,7 @@ StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     auto ptr = std::shared_ptr<StatisticDisplay>(
         new StatisticDisplay(copy));
     ptr->weather_data_->AddDisplay(ptr->shared_from_this());
+    ptr->Update();
     return ptr;
 }
 
@@ -32,6 +34,7 @@ StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     auto ptr = std::shared_ptr<StatisticDisplay>(
         new StatisticDisplay(copy));
     ptr->weather_data_->AddDisplay(ptr->shared_from_this());
+    ptr->Update();
     return ptr;
 }
 
