@@ -9,7 +9,7 @@ void StatisticDisplay::Display() const {
               << std::endl;
 }
 
-StatisticDisplay::Shared StatisticDisplay::StaticDisplayPtr(
+StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     const WeatherData::Shared &weather_data) {
     auto ptr = std::shared_ptr<StatisticDisplay>(
         new StatisticDisplay(weather_data));
@@ -17,7 +17,7 @@ StatisticDisplay::Shared StatisticDisplay::StaticDisplayPtr(
     return ptr;
 }
 
-StatisticDisplay::Shared StatisticDisplay::StaticDisplayPtr(
+StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     const StatisticDisplay::Shared &copy) {
     copy->weather_data_->RemoveDisplay(copy->shared_from_this());
     auto ptr = std::shared_ptr<StatisticDisplay>(
@@ -26,7 +26,7 @@ StatisticDisplay::Shared StatisticDisplay::StaticDisplayPtr(
     return ptr;
 }
 
-StatisticDisplay::Shared StatisticDisplay::StaticDisplayPtr(
+StatisticDisplay::Shared StatisticDisplay::StatisticDisplayPtr(
     StatisticDisplay::Shared &&copy) {
     copy->weather_data_->RemoveDisplay(copy->shared_from_this());
     auto ptr = std::shared_ptr<StatisticDisplay>(

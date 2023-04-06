@@ -9,9 +9,9 @@ class StatisticDisplay : public DisplayInterface {
  public:
   using Shared = std::shared_ptr<StatisticDisplay>;
 
-  static Shared StaticDisplayPtr(const WeatherData::Shared &);
-  static Shared StaticDisplayPtr(const Shared &);
-  static Shared StaticDisplayPtr(Shared &&);
+  static Shared StatisticDisplayPtr(const WeatherData::Shared &);
+  static Shared StatisticDisplayPtr(const Shared &);
+  static Shared StatisticDisplayPtr(Shared &&);
 
   ~StatisticDisplay() { weather_data_->RemoveDisplay(shared_from_this()); }
 
