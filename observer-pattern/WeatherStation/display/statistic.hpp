@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "interface.hpp"
-
+// TODO write documentation
 class StatisticDisplay : public DisplayInterface {
  public:
   using Shared = std::shared_ptr<StatisticDisplay>;
