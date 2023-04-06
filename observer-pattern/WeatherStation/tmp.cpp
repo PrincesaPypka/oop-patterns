@@ -3,8 +3,8 @@
 
 int main() {
     auto data1 = std::make_shared<WeatherData>();
-    auto device1 = CurrentConditionDevice::CurrentConnectionDevicePtr(data1);
-    auto device2 = CurrentConditionDevice::CurrentConnectionDevicePtr(data1);
+    auto device1 = CurrentConditionDisplay::CurrentConnectionDevicePtr(data1);
+    auto device2 = CurrentConditionDisplay::CurrentConnectionDevicePtr(data1);
     {
         auto data2 = std::make_shared<WeatherData>(10, 10);
         device1->ConnectToAnotherDataSource(data2);

@@ -1,23 +1,23 @@
 #include "data.hpp"
 
-void WeatherData::RemoveDisplay(const std::shared_ptr<DeviceInterface> &device) {
+void WeatherData::RemoveDisplay(const DisplayInterface::Shared &device) {
     auto ptr = device.get();
     long pos = -1;
-    for (auto i = 0; i < connected_devises_.size(); ++i)
-        if (ptr == connected_devises_[i].get()) {
+    for (auto i = 0; i < connected_displays_.size(); ++i)
+        if (ptr == connected_displays_[i].get()) {
             pos = i;
             break;
         }
     if (pos != -1)
-        connected_devises_.erase(connected_devises_.cbegin() + pos);
+        connected_displays_.erase(connected_displays_.cbegin() + pos);
 }
 
-void WeatherData::AddDisplay(const std::shared_ptr<DeviceInterface> &device) {
-    connected_devises_.push_back(device);
+void WeatherData::AddDisplay(const DisplayInterface::Shared &device) {
+    connected_displays_.push_back(device);
 }
 
 void WeatherData::NotifyDisplay() {
-    for (const auto &device : connected_devises_)
+    for (const auto &device : connected_displays_)
         if (device)
             device->Update();
 }
