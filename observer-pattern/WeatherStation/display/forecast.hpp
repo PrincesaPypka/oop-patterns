@@ -1,6 +1,8 @@
 #ifndef OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_FORECAST_HPP_
 #define OBSERVER_PATTERN_WEATHERSTATION_DISPLAY_FORECAST_HPP_
 
+#include <iostream>
+
 #include "interface.hpp"
 
 class ForecastDisplay : public DisplayInterface {
