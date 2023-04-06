@@ -1,4 +1,4 @@
-project(observer-pattern-0.2)
+project(observer-pattern)
 
 cmake_minimum_required(VERSION 3.7)
 set(CMAKE_CXX_STANDARD 20)
