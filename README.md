@@ -17,8 +17,8 @@ behavior at runtime by choosing among different strategies.
 
 In the Strategy pattern, you have three main components:
 
-- context
-- set of concrete strategies,
+- **context**
+- set of **concrete strategies**
 - interface or abstract class that defines the behavior of the strategies.
 
 The context is the object responsible for invoking the algorithms,
@@ -39,7 +39,7 @@ families** which providing different Quack and Fly behaviors.
 
 [Here is a more real world example](https://github.com/some404day)
 
-### observe pattern
+### Observe pattern
 
 Defines a one-to-many dependency between objects so that when one object
 changes state, all of its dependencies are notified and updated automatically.
@@ -78,5 +78,47 @@ In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/observe
 class` is a **observer** and `WeatherData class` is a **concrete subject**
 and a **subject** in the same time. It may be not the very best idea, but oh
 well...
+
+[Here is a more real world example](https://github.com/some404day)
+
+### Decorator pattern
+
+Attaches additional responsibilities to an object dynamically. Decorators
+provide a flexible alternative to subclassing for extending functionality.
+
+In other words, it allows behavior to be added to an individual object,
+either statically or dynamically, without affecting the behavior of other
+objects from the same class.
+
+The main components of the decorator pattern are:
+
+- **Component interface:** This is the interface or abstract class that
+  defines the methods that the concrete components and decorators must
+  implement. It provides the basic functionality that the decorator can
+  enhance or modify.
+- **Concrete component:** This is the class that implements the component
+  interface. It represents the basic functionality that the decorator can
+  enhance or modify.
+- **Decorator:** This is the abstract class that implements the component
+  interface and also contains a reference to the component object that it
+  decorates. It provides an interface that is identical to the component's
+  interface, so that it can be used in the same way as the component.
+- **Concrete decorator:** This is the class that extends the decorator and
+  provides additional functionality or behavior to the component. It may
+  also override some methods of the component to modify its behavior or add
+  new functionality.
+
+| Pros                                                                                                                   | Cons                                                                                                                           |
+|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| Allows adding functionality to an object without changing its class.                                                   | Can result in a large number of small classes if used excessively.                                                             |
+| Allows adding and removing responsibilities at runtime.                                                                | Can be complex to implement, especially with multiple decorators.                                                              |
+| Allows composition of behaviors instead of inheritance.                                                                | Can introduce overhead by creating multiple objects to achieve the desired behavior.                                           |
+| Provides a flexible and modular approach to modifying an object's behavior.                                            | Can lead to confusion and difficulty in understanding the code when usedexcessively.                                           |
+| Follows the Open-Closed Principle, which states that classes should be open for extension but closed for modification. | Can be overused, leading to unnecessary                                              complexity and decreased maintainability. |
+
+In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/decorator-pattern/StarbuzzCofe),
+`BeverageInterface class` is a **component interface**,
+`Espresso class` and others are **concrete components**, `CondimentDecorator
+class` is a **decorator** and `Whip class` and other are **concrete decorators**
 
 [Here is a more real world example](https://github.com/some404day)
