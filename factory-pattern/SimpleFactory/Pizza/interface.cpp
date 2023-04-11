@@ -23,13 +23,13 @@ std::stringstream PizzaInterface::Box() const {
     ss << "Boxing " << name_ << "..." << std::endl;
     return ss;
 }
-
-std::stringstream &PizzaInterface::operator<<(std::stringstream &ss) const {
-    ss << "---" << name_ << "---" << std::endl
-       << dough_ << std::endl << sauce_ << std::endl;
-    for (const auto &kTopping : toppings_)
-        ss << kTopping << std::endl;
-    return ss;
+std::ostream &operator<<(std::ostream &out,
+                         const PizzaInterface::PizzaInterfacePtr &pizza) {
+    out << "---" << pizza->name_ << "---" << std::endl
+        << pizza->dough_ << std::endl << pizza->sauce_ << std::endl;
+    for (const auto &kTopping : pizza->toppings_)
+        out << kTopping << std::endl;
+    return out;
 }
 
-PizzaInterface::~PizzaInterface() {}
+PizzaInterface::~PizzaInterface() = default;
