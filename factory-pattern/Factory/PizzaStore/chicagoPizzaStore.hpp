@@ -8,6 +8,7 @@
 #include "Pizza/peperoni2.hpp"
 
 class ChicagoPizzaStore : public PizzaStoreInterface {
+ public:
   using PizzaInterfacePtr = PizzaStoreInterface::PizzaInterfacePtr;
   enum class PizzaType {
     VEGGIE,
@@ -22,13 +23,13 @@ class ChicagoPizzaStore : public PizzaStoreInterface {
       auto type_t = static_cast<PizzaType>(type);
       PizzaInterface *pizza;
       switch (type_t) {
-          case PizzaType::VEGGIE:pizza = new VeggiePizza();
+          case PizzaType::VEGGIE:pizza = new Veggie2Pizza();
               break;
-          case PizzaType::CHEESE:pizza = new CheesePizza();
+          case PizzaType::CHEESE:pizza = new Cheese2Pizza();
               break;
-          case PizzaType::CLAM:pizza = new ClamPizza();
+          case PizzaType::CLAM:pizza = new Clam2Pizza();
               break;
-          case PizzaType::PEPERONI:pizza = new PeperoniPizza();
+          case PizzaType::PEPERONI:pizza = new Peperoni2Pizza();
               break;
           default:pizza = nullptr;
               break;

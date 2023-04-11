@@ -8,6 +8,7 @@
 #include "Pizza/peperoni.hpp"
 
 class NYPizzaStore : public PizzaStoreInterface {
+ public:
   using PizzaInterfacePtr = PizzaStoreInterface::PizzaInterfacePtr;
   enum class PizzaType {
     VEGGIE,

@@ -7,7 +7,7 @@
 
 class PizzaStoreInterface {
  public:
-  enum class PizzaType : unsigned short {};
+  using PizzaType = unsigned short;
 
   using PizzaInterfacePtr = PizzaInterface::PizzaInterfacePtr;
   PizzaInterfacePtr OrderPizza(PizzaType type);
