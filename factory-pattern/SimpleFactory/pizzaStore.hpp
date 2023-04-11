@@ -11,7 +11,7 @@ class PizzaStore {
   PizzaStore() = delete;
   explicit PizzaStore(std::unique_ptr<SimplePizzaFactory> &factory) :
       factory_(std::move(factory)) {}
-  std::shared_ptr<PizzaInterface> OrderPizza(PizzaType type) {
+  PizzaInterfacePtr OrderPizza(PizzaType type) {
       PizzaInterfacePtr pizza = factory_->CreatePizza(type);
       std::cout << pizza->Prepare().str() << pizza->Bake().str();
       std::cout << pizza->Cut().str() << pizza->Box().str();

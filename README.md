@@ -26,12 +26,12 @@ while the strategies are the encapsulated algorithms that can be exchanged at
 runtime. The interface or abstract class defines the common behavior of the
 strategies and allows them to be interchanged.
 
-| Pros                                                                                                    | Cons                                                 |
-|:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-| Algorithms are encapsulated in objects and can be exchanged during run time                             | Clients must know and choose the right strategy      |
-| Adding new strategies is easy. You only have to implement a new strategy.                               | The number of objects (strategies) increases heavily |
-| The Strategy Pattern replaces conditional execution based on `if/else` statements or `switch`statements |                                                      |
-| Callables are often lightweight implementations for strategies in C++                                   |                                                      |
+| Pros                                                                      | Cons                                                 |
+|:--------------------------------------------------------------------------|:-----------------------------------------------------|
+| Encapsulated in objects and can be exchanged during run time              | Clients must know and choose the right strategy      |
+| Adding new strategies is easy. You only have to implement a new strategy. | The number of objects (strategies) increases heavily |
+| Replaces conditional execution based on `if/else` or `switch`statements   |                                                      |
+| Callables are often lightweight implementations for strategies            |                                                      |
 
 In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/strategy-pattern/SimUDuck),
 `FlyBehavior class` and `QuackBehavior class` are **interfaces of algorithm
@@ -67,11 +67,11 @@ The main components of the Observer pattern are:
   interface. It registers with a concrete subject and implements the update
   method to receive notifications from the subject.
 
-| Pros                                                                                                                                                                                                  | Cons                                                                                                                                                                             |
-|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Loose coupling:** The Observer pattern promotes loose coupling between objects, since the subject doesn't need to know anything about its observers except that they implement a certain interface. | **Complexity:** Implementing the Observer pattern can add complexity to your code,since you need to maintain the list of observers and make sure they get notifiedappropriately. |
-| **Flexibility:** The Observer pattern makes it easy to add or remove observers dynamically at runtime, which gives you more flexibility in how you design your system.                                | **Overhead:** The Observer pattern can add some overhead to your system, since the subject needs to notify its observers every time its state changes.                           |
-| **Separation of concerns:** By separating the concerns of the subject and its observers, you can make your code more modular and easier to maintain.                                                  | **Memory leaks:** If you're not careful, the Observer pattern can lead to memory leaks if observers aren't properly removed when they're no longer needed.                       |
+| Pros                                                                                                                           | Cons                                                                                                                                  |
+|:-------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
+| Promotes loose coupling between objects by allowing the subject to know only that its observers implement a certain interface. | Can add complexity to the code by requiring the maintenance of a list of observers and ensuring that they are notified appropriately. |
+| Makes it easy to add or remove observers dynamically at runtime, providing more flexibility in system design.                  | Can add overhead to the system by requiring the subject to notify its observers every time its state changes.                         |
+| Separates the concerns of the subject and its observers, making the code more modular and easier to maintain.                  | Can lead to memory leaks if observers are not properly removed when they are no longer needed.                                        |
 
 In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/observer-pattern/WeatherStation),
 `CurrentConditionDisplay class` is a **concrete observer**, `DisplayInterface
@@ -108,13 +108,13 @@ The main components of the decorator pattern are:
   also override some methods of the component to modify its behavior or add
   new functionality.
 
-| Pros                                                                                                                   | Cons                                                                                                                           |
-|:-----------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| Allows adding functionality to an object without changing its class.                                                   | Can result in a large number of small classes if used excessively.                                                             |
-| Allows adding and removing responsibilities at runtime.                                                                | Can be complex to implement, especially with multiple decorators.                                                              |
-| Allows composition of behaviors instead of inheritance.                                                                | Can introduce overhead by creating multiple objects to achieve the desired behavior.                                           |
-| Provides a flexible and modular approach to modifying an object's behavior.                                            | Can lead to confusion and difficulty in understanding the code when usedexcessively.                                           |
-| Follows the Open-Closed Principle, which states that classes should be open for extension but closed for modification. | Can be overused, leading to unnecessary                                              complexity and decreased maintainability. |
+| Pros                                                                                                                                             | Cons                                                                                                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|
+| Allows adding functionality to an object without changing its class, which can promote code reusability.                                         | Can result in a large number of small classes if used excessively, making the code harder to understand.            |
+| Allows adding and removing responsibilities at runtime, providing more flexibility in the system design.	                                        | Can be complex to implement, especially with multiple decorators, increasing the potential for errors.              |
+| Allows composition of behaviors instead of inheritance, which can reduce the complexity of the code.                                             | Can introduce overhead by creating multiple objects to achieve the desired behavior, which can affect performance.  |
+| Provides a flexible and modular approach to modifying an object's behavior, making the code easier to maintain.                                  | Can lead to confusion and difficulty in understanding the code when used excessively, reducing its readability.     |
+| Follows the Open-Closed Principle, which states that classes should be open for extension but closed for modification, promoting code stability. | Can be overused, leading to unnecessary complexity and decreased maintainability, making the code harder to modify. |
 
 In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/decorator-pattern/StarbuzzCofe),
 `BeverageInterface class` is a **component interface**,
@@ -122,3 +122,39 @@ In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/decorat
 class` is a **decorator** and `Whip class` and other are **concrete decorators**
 
 [Here is a more real world example](https://github.com/some404day)
+
+### Factory pattern
+
+#### Small factory pattern (not really a pattern, but oh well...)
+
+Provides a way to create objects without exposing the underlying
+instantiation logic. In simple terms, the simple factory pattern is a way of
+creating objects in which a factory method is responsible for creating
+objects of a specific class. This method takes in some input, which it uses
+to determine which class to instantiate, and returns an object of that class.
+
+The main components of the small factory pattern are:
+
+- **Factory:** This is the class responsible for creating the objects.
+  It has a factory method that takes in some input, which it uses to
+  determine which object to create. The factory method then returns an
+  object of the appropriate type.
+- **Product:** This is the object being created by the factory. It can
+  be an abstract class or an interface that defines the common properties
+  and behaviors of the objects that the factory creates.
+- **Concrete Products:** These are the concrete implementations of the
+  product interface. They define the specific properties and behaviors of
+  the objects that the factory creates.
+
+| Pros                                                                                                                                                   | Cons                                                                                                                                                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Encapsulates the object creation process in a single location, making it easier to maintain and modify the code when new products are added.           | Violates the Open-Closed Principle since adding new concrete products to the factory requires modifying the factory code.                              |
+| Provides a simple interface for creating objects, which makes it easy to use and understand by clients.                                                | Limited in extensibility because the factory method is responsible for creating all objects of a particular type.                                      |
+| Reduces the coupling between classes by allowing clients to request objects without knowing the details of how they are created, promoting modularity. | As the number of concrete products increases, the factory class can become large and complex, making it difficult to maintain and understand the code. |
+
+In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/factory-pattern/SimpleFactory),
+`PizzaInterface class` is a **product**,`VeggiePizza class` and others are
+**concrete products**, `SimplePizzaFactory class` is a **factory**
+
+[Here is a more real world example](https://github.com/some404day)
+
