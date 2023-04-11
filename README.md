@@ -196,3 +196,5 @@ In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/factory
 `NYPizzaStore class` and other are **concrete creator**
 
 [Here is a more real world example](https://github.com/some404day)
+
+#### Abstract Factory pattern
