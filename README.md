@@ -158,3 +158,41 @@ In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/factory
 
 [Here is a more real world example](https://github.com/some404day)
 
+#### Factory pattern
+
+Defines an interface for creating an object, but lets subclasses decide
+which class to instantiate. It lets a class defer instantiation to subclasses.
+
+In other words, it defines a way to create objects by providing an interface
+in a superclass, while allowing subclasses to determine which specific class
+of object to create. By doing this, the responsibility of instantiating
+objects is delegated to the subclasses.
+
+The main components of the small factory pattern are:
+
+- **Creator:** This is the abstract class or interface that defines the
+  factory method. The Creator is responsible for defining the method
+  signature of the factory method, which the concrete factory classes will
+  implement.
+- **Concrete Creator:** These are the concrete subclasses that implement the
+  factory method defined in the Creator. Each ConcreteCreator is
+  responsible for creating a specific type of product.
+- **Product:** This is the abstract class or interface that defines the
+  interface for the objects that the factory method creates.
+- **Concrete Product:** These are the concrete subclasses that implement the
+  Product interface. Each ConcreteProduct represents a specific type of
+  object that the factory method can create.
+
+| Pros                                                                                                                        | Cons                                                                                                    |
+|:----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
+| Provides a centralized place to control object creation, making it easier to modify and maintain the code.                  | Requires the creation of multiple classes for each product type, which can lead to a larger codebase.   |
+| Allows for abstraction of the object creation process, which can simplify the code and reduce complexity.                   | The pattern can be overused, leading to an unnecessary level of abstraction and complexity in the code. |
+| Enables the creation of objects without exposing their implementation details to the client code, promoting loose coupling. | Can be less efficient than other methods of object creation due to the extra layer of indirection.      |
+| Supports the Open-Closed principle                                                                                          |                                                                                                         |
+
+In [our example](https://github.com/PrincesaPypka/oop-patterns/tree/main/factory-pattern/Factory),
+`PizzaInterface class` is a **product**,`VeggiePizza class` and others are
+**concrete products**, `PizzaStoreInterface class` is a **creator**,
+`NYPizzaStore class` and other are **concrete creator**
+
+[Here is a more real world example](https://github.com/some404day)
