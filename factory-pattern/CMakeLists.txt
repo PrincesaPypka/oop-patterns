@@ -9,7 +9,6 @@ file(GLOB PIZZAS_HEADER "SimpleFactory/Pizza/*.hpp")
 set(PIZZAS ${PIZZAS_HEADER} ${PIZZAS_SOURCE})
 set(FACTORY SimpleFactory/simplePizzaFactory.hpp)
 set(PIZZA_STORE SimpleFactory/pizzaStore.hpp)
-#file(GLOB DUCKS "SimUDuck/ducks")
 add_executable(SimpleFactoryExe
         SimpleFactory/main.cpp
         ${PIZZAS}
@@ -17,3 +16,15 @@ add_executable(SimpleFactoryExe
         ${PIZZA_STORE}
         )
 target_include_directories(SimpleFactoryExe PRIVATE SimpleFactory)
+
+# example 2 - factory pattern
+file(GLOB FACTORY_SOURCE "Factory/PizzaStore/*.cpp")
+file(GLOB FACTORY_HEADER "Factory/PizzaStore/*.hpp")
+set(FACTORY ${FACTORY_HEADER} ${FACTORY_SOURCE})
+add_executable(FactoryExe
+        Factory/main.cpp
+        ${PIZZAS}
+        ${FACTORY}
+        ${PIZZA_STORE}
+        )
+target_include_directories(FactoryExe PRIVATE SimpleFactory)
